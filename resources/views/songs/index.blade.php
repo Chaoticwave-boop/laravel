@@ -14,7 +14,8 @@
                    <div class="p-6 text-gray-900 dark:text-gray-100">
                         <a href="#"> {{$song->name}}</a> 
                         <br>
-                        Genre: {{$song->Genre->name}} - duration:{{$song->duration}} m
+                        <a href="/genre/{{$song->Genre->id}}">Genre: {{$song->Genre->name}} </a>
+                        duration:{{$song->duration}} m
                    </div>
                </div>
            </div>
