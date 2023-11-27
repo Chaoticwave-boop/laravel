@@ -14,9 +14,6 @@ class SongsController extends Controller
     public function index()
     {
         $songs = Songs::all();
-        $grocery = Playlist::find(1);
-
-        dd($grocery -> Songs);
         return view('songs.index', ['songs'=> $songs]);
     }
 
