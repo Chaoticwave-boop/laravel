@@ -12,7 +12,8 @@ class GenresController extends Controller
      */
     public function index()
     {
-        //
+        $genres = Genres::all();
+        return view('genres.index', ['genres'=> $genres]);
     }
 
     /**
@@ -36,7 +37,8 @@ class GenresController extends Controller
      */
     public function show(Genres $genres)
     {
-        //
+        $genresShow = $genres->Songs;
+        return view('genres.show' , ['genresShow'=> $genresShow, 'genre' => $genres]);
     }
 
     /**

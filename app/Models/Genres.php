@@ -10,6 +10,8 @@ class Genres extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function Songs(){
         return $this->hasMany(Songs::class); 
     }
