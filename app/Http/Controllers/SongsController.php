@@ -38,7 +38,7 @@ class SongsController extends Controller
      */
     public function show(Songs $songs)
     {
-        //
+        return view('songs.show' , ['songs' => $songs]);
     }
 
     /**

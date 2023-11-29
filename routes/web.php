@@ -35,5 +35,6 @@ Route::get('/songs', [SongsController::class, 'index'])->name('songs.index');
 Route::get('/genres', [GenresController::class, 'index'])->name('genres.index');
 
 Route::get("/genre/{genres}", [GenresController::class, 'show'])->name('genre.show');
+Route::get("/songs/{songs}", [SongsController::class, 'show'])->name('songs.show');
 
 require __DIR__.'/auth.php';
