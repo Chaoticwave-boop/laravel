@@ -9,6 +9,8 @@ class Playlist extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+
     public function SongsPlaylist(){
         return $this->hasMany(Songs::class); 
     }
