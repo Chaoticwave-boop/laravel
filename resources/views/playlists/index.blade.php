@@ -6,9 +6,9 @@
         </h2>
         <br>
 
-        <h2 class="font-semibold text-l text-gray-800 dark:text-gray-200 leading-tight">
+        <a href="/playlists/create" class="font-semibold text-l text-gray-800 dark:text-gray-200 leading-tight">
             add new list
-        </h2>
+        </a>
     </x-slot>
 
     <div class="py-12">
