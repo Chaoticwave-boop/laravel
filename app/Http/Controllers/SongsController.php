@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Playlist;
 use App\Models\Songs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SongsController extends Controller
 {
@@ -64,4 +65,18 @@ class SongsController extends Controller
     {
         //
     }
+
+    public function showPlaylistForm(Songs $songs)
+    {
+        $playlist = Playlist::all();
+        $user = Auth::user();
+        return view("playlists.showPlaylistForm", ["playlist" => $playlist, "user" => $user, "song" => $songs]);
+    }
+
+    public function addSong(Playlist $playlist)
+    {
+        
+
+    }
+
 }

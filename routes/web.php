@@ -44,5 +44,7 @@ Route::get("/playlists/test/{playlists}", [PlaylistController::class, 'show'])->
 Route::get("/playlists/create", [PlaylistController::class, 'create'])->name('playlists.create');
 Route::post("/playlists/store", [PlaylistController::class, 'store'])->name('playlists.store');
 
+Route::get("/song/showForm/{songs}", [SongsController::class, 'showPlaylistForm'])->name('playlists.showPlaylistForm');
+
 
 require __DIR__.'/auth.php';
