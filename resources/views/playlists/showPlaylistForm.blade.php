@@ -24,6 +24,7 @@
                             <option name="{{$playlist -> id}}">{{$playlist -> name}}</option>
                         @endforeach
                     </select>
+                    <input type="hidden" name="{{ $song->id }}" value="{{ $song->id }}">
 
             <div class="md:col-span-2">
             </div>
