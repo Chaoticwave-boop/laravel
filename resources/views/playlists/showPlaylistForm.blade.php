@@ -31,11 +31,10 @@
             </div>
             </div>
             <div class="md:col-span-2">
-            <button class="py-3 text-base font-medium rounded text-white bg-blue-800 w-full hover:bg-blue-700 transition duration-300">Add</button>
+                <button class="py-3 text-base font-medium rounded text-white bg-blue-800 w-full hover:bg-blue-700 transition duration-300">Add</button>
             </div>
         </div>
             </form>
-                   
                 </div>
             </div>
     </div>

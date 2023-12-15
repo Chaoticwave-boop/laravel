@@ -43,8 +43,11 @@ Route::get('/playlists', [PlaylistController::class, 'index'])->name('playlists.
 Route::get("/playlists/test/{playlists}", [PlaylistController::class, 'show'])->name('playlists.show');
 Route::get("/playlists/create", [PlaylistController::class, 'create'])->name('playlists.create');
 Route::post("/playlists/store", [PlaylistController::class, 'store'])->name('playlists.store');
+Route::delete('/playlists/{playlist}', [PlaylistController::class, 'destroy'])->name('playlists.destroy');
+
 
 Route::get("/song/showForm/{songs}", [SongsController::class, 'showPlaylistForm'])->name('playlists.showPlaylistForm');
+
 
 
 require __DIR__.'/auth.php';
