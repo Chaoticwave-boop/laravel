@@ -73,10 +73,11 @@ class SongsController extends Controller
         return view("playlists.showPlaylistForm", ["playlist" => $playlist, "user" => $user, "song" => $songs]);
     }
 
-    public function addSong(Playlist $playlist)
+    public function addSong(Request $request)
     {
+        $playlist = Playlist::find($request -> playlist);
         
-
+        $playlist->songs()->attach($request -> song);
     }
 
 }

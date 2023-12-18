@@ -47,6 +47,7 @@ Route::delete('/playlists/{playlist}', [PlaylistController::class, 'destroy'])->
 
 
 Route::get("/song/showForm/{songs}", [SongsController::class, 'showPlaylistForm'])->name('playlists.showPlaylistForm');
+Route::post("/song/addSong", [SongsController::class, "addSong"])->name("playlists.addSong");
 
 
 
