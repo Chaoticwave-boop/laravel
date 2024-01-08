@@ -44,7 +44,7 @@ class PlaylistController extends Controller
      */
     public function show(Playlist $playlist)
     {
-        //
+        return view('playlists.show',  ['playlists'=> $playlist]);
     }
 
     /**
