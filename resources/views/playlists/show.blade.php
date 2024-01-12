@@ -1,5 +1,3 @@
-<!-- playlists.show.blade.php -->
-
 <!DOCTYPE html>
 <x-app-layout>
     <x-slot name="header">
