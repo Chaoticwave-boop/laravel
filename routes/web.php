@@ -44,6 +44,8 @@ Route::get("/playlists/test/{playlist}", [PlaylistController::class, 'show'])->n
 Route::get("/playlists/create", [PlaylistController::class, 'create'])->name('playlists.create');
 Route::post("/playlists/store", [PlaylistController::class, 'store'])->name('playlists.store');
 Route::delete('/playlists/{playlist}', [PlaylistController::class, 'destroy'])->name('playlists.destroy');
+Route::delete('/playlists/{playlist}/destroySong/{song}', [PlaylistController::class, 'destroySong'])->name('playlist.destroySong');
+
 
 
 Route::get("/song/showForm/{songs}", [SongsController::class, 'showPlaylistForm'])->name('playlists.showPlaylistForm');

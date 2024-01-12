@@ -51,7 +51,15 @@ class PlaylistController extends Controller
             'songs' => $songs,
         ]);
     }
-    
+
+    public function destroySong($playlistId, $songId)
+    {
+        $playlist = Playlist::findOrFail($playlistId);
+        $playlist->songs()->detach($songId);
+        
+        return redirect()->route('playlists.show', ['playlist' => $playlistId]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
