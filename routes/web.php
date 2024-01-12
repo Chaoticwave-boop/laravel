@@ -40,7 +40,7 @@ Route::get('/songs', [SongsController::class, 'index'])->name('songs.index');
 Route::get("/songs/{songs}", [SongsController::class, 'show'])->name('songs.show');
 
 Route::get('/playlists', [PlaylistController::class, 'index'])->name('playlists.index');
-Route::get("/playlists/test/{playlists}", [PlaylistController::class, 'show'])->name('playlists.show');
+Route::get("/playlists/test/{playlist}", [PlaylistController::class, 'show'])->name('playlists.show');
 Route::get("/playlists/create", [PlaylistController::class, 'create'])->name('playlists.create');
 Route::post("/playlists/store", [PlaylistController::class, 'store'])->name('playlists.store');
 Route::delete('/playlists/{playlist}', [PlaylistController::class, 'destroy'])->name('playlists.destroy');

@@ -44,9 +44,14 @@ class PlaylistController extends Controller
      */
     public function show(Playlist $playlist)
     {
-        return view('playlists.show',  ['playlists'=> $playlist]);
+        // Fetch the songs related to the playlist
+        $songs = $playlist->songs;
+        return view('playlists.show', [
+            'playlist' => $playlist,
+            'songs' => $songs,
+        ]);
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
