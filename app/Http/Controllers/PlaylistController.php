@@ -80,5 +80,5 @@ class PlaylistController extends Controller
         return redirect()->route('playlists.index');
     }
 
-   
-    }
+
+   }
