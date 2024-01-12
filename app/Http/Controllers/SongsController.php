@@ -78,6 +78,7 @@ class SongsController extends Controller
         $playlist = Playlist::find($request -> playlist);
         
         $playlist->songs()->attach($request -> song);
+        return redirect()->route('songs.index');
     }
 
 }
