@@ -17,13 +17,14 @@
                     <div class="grid md:grid-cols-2 grid-cols-1 gap-6">
                     @csrf
                     <label for="name" class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                        PlaylistName
+                        Playlist Name
                     </label>
                     <select name="playlist" id="playlists">
-                        @foreach($playlist as $playlist)
-                            <option value="{{$playlist -> id}}">{{$playlist -> name}}</option>
+                        @foreach(Auth::user()->playlists as $userPlaylist)
+                            <option value="{{ $userPlaylist->id }}">{{ $userPlaylist->name }}</option>
                         @endforeach
                     </select>
+
                     <input type="hidden" name="song" value="{{ $song->id }}">
 
             <div class="md:col-span-2">
