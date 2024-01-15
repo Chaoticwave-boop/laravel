@@ -4,89 +4,81 @@ namespace App\Http\Controllers;
 
 use App\Models\Playlist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlaylistController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $playlists = Playlist::all();
-        return view('playlists.index', ['playlists'=> $playlists]);
+        // Fetch only playlists belonging to the authenticated user
+        $playlists = Auth::user()->playlists;
+        return view('playlists.index', ['playlists' => $playlists]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('playlists.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
-    {   
+    {
         $validated = $request->validate([
-            'name' => "string|required"
+            'name' => 'string|required',
         ]);
 
-        Playlist::create([
+        Auth::user()->playlists()->create([
             'name' => $request->name,
         ]);
-        return redirect(route("playlists.index"));
+
+        return redirect(route('playlists.index'));
     }
 
-    /**
-     * Display the specified resource.
-     */
+    
     public function show(Playlist $playlist)
     {
-        // Fetch the songs related to the playlist
-        $songs = $playlist->songs;
+        // Make sure the requested playlist belongs to the authenticated user
+        #$this->authorize('view', $playlist);
+    
+        // Fetch the songs related to the playlist for the authenticated user
+        $songs = Auth::user()->playlists()->findOrFail($playlist->id)->songs;
+    
         return view('playlists.show', [
             'playlist' => $playlist,
             'songs' => $songs,
         ]);
     }
+    
 
+    
     public function destroySong($playlistId, $songId)
     {
-        $playlist = Playlist::findOrFail($playlistId);
+
+        $playlist = Auth::user()->playlists()->findOrFail($playlistId);
+
         $playlist->songs()->detach($songId);
-        
+
         return redirect()->route('playlists.show', ['playlist' => $playlistId]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Playlist $playlist)
     {
-        //
+        $this->authorize('update', $playlist);
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Playlist $playlist)
     {
-        //
+        $this->authorize('update', $playlist);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    // PlaylistController.php
-
+  
     public function destroy($id)
     {
-        $playlist = Playlist::findOrFail($id);
+      
+        $playlist = Auth::user()->playlists()->findOrFail($id);
         $playlist->delete();
+
         return redirect()->route('playlists.index');
     }
-
-
-   }
+}
